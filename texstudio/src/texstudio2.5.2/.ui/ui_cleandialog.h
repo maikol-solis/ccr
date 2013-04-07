@@ -1,0 +1,143 @@
+/********************************************************************************
+** Form generated from reading UI file 'cleandialog.ui'
+**
+** Created: Sat Apr 6 13:26:39 2013
+**      by: Qt User Interface Compiler version 4.8.4
+**
+** WARNING! All changes made in this file will be lost when recompiling UI file!
+********************************************************************************/
+
+#ifndef UI_CLEANDIALOG_H
+#define UI_CLEANDIALOG_H
+
+#include <QtCore/QVariant>
+#include <QtGui/QAction>
+#include <QtGui/QApplication>
+#include <QtGui/QButtonGroup>
+#include <QtGui/QComboBox>
+#include <QtGui/QDialog>
+#include <QtGui/QDialogButtonBox>
+#include <QtGui/QGridLayout>
+#include <QtGui/QHBoxLayout>
+#include <QtGui/QHeaderView>
+#include <QtGui/QLabel>
+#include <QtGui/QLineEdit>
+#include <QtGui/QListWidget>
+#include <QtGui/QPushButton>
+
+QT_BEGIN_NAMESPACE
+
+class Ui_CleanDialog
+{
+public:
+    QGridLayout *gridLayout;
+    QLabel *label_2;
+    QComboBox *cbScope;
+    QLabel *label;
+    QHBoxLayout *horizontalLayout;
+    QLineEdit *leExtensions;
+    QPushButton *pbResetExtensions;
+    QLabel *label_3;
+    QDialogButtonBox *buttonBox;
+    QListWidget *lwFiles;
+    QLabel *label_4;
+
+    void setupUi(QDialog *CleanDialog)
+    {
+        if (CleanDialog->objectName().isEmpty())
+            CleanDialog->setObjectName(QString::fromUtf8("CleanDialog"));
+        CleanDialog->resize(407, 285);
+        gridLayout = new QGridLayout(CleanDialog);
+        gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
+        label_2 = new QLabel(CleanDialog);
+        label_2->setObjectName(QString::fromUtf8("label_2"));
+
+        gridLayout->addWidget(label_2, 1, 0, 1, 1);
+
+        cbScope = new QComboBox(CleanDialog);
+        cbScope->setObjectName(QString::fromUtf8("cbScope"));
+
+        gridLayout->addWidget(cbScope, 1, 1, 1, 1);
+
+        label = new QLabel(CleanDialog);
+        label->setObjectName(QString::fromUtf8("label"));
+
+        gridLayout->addWidget(label, 2, 0, 1, 1);
+
+        horizontalLayout = new QHBoxLayout();
+        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
+        leExtensions = new QLineEdit(CleanDialog);
+        leExtensions->setObjectName(QString::fromUtf8("leExtensions"));
+
+        horizontalLayout->addWidget(leExtensions);
+
+        pbResetExtensions = new QPushButton(CleanDialog);
+        pbResetExtensions->setObjectName(QString::fromUtf8("pbResetExtensions"));
+        QIcon icon;
+        icon.addFile(QString::fromUtf8(":/classic/images/classic/undo.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pbResetExtensions->setIcon(icon);
+
+        horizontalLayout->addWidget(pbResetExtensions);
+
+
+        gridLayout->addLayout(horizontalLayout, 2, 1, 1, 1);
+
+        label_3 = new QLabel(CleanDialog);
+        label_3->setObjectName(QString::fromUtf8("label_3"));
+
+        gridLayout->addWidget(label_3, 0, 0, 1, 2);
+
+        buttonBox = new QDialogButtonBox(CleanDialog);
+        buttonBox->setObjectName(QString::fromUtf8("buttonBox"));
+        buttonBox->setOrientation(Qt::Horizontal);
+        buttonBox->setStandardButtons(QDialogButtonBox::Cancel|QDialogButtonBox::Ok);
+
+        gridLayout->addWidget(buttonBox, 4, 0, 1, 2);
+
+        lwFiles = new QListWidget(CleanDialog);
+        lwFiles->setObjectName(QString::fromUtf8("lwFiles"));
+        lwFiles->setEditTriggers(QAbstractItemView::NoEditTriggers);
+        lwFiles->setProperty("showDropIndicator", QVariant(false));
+        lwFiles->setSelectionMode(QAbstractItemView::NoSelection);
+
+        gridLayout->addWidget(lwFiles, 3, 1, 1, 1);
+
+        label_4 = new QLabel(CleanDialog);
+        label_4->setObjectName(QString::fromUtf8("label_4"));
+        label_4->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop);
+
+        gridLayout->addWidget(label_4, 3, 0, 1, 1);
+
+        QWidget::setTabOrder(buttonBox, cbScope);
+        QWidget::setTabOrder(cbScope, leExtensions);
+        QWidget::setTabOrder(leExtensions, pbResetExtensions);
+
+        retranslateUi(CleanDialog);
+        QObject::connect(buttonBox, SIGNAL(accepted()), CleanDialog, SLOT(accept()));
+        QObject::connect(buttonBox, SIGNAL(rejected()), CleanDialog, SLOT(reject()));
+
+        QMetaObject::connectSlotsByName(CleanDialog);
+    } // setupUi
+
+    void retranslateUi(QDialog *CleanDialog)
+    {
+        CleanDialog->setWindowTitle(QApplication::translate("CleanDialog", "Clean", 0, QApplication::UnicodeUTF8));
+        label_2->setText(QApplication::translate("CleanDialog", "Scope", 0, QApplication::UnicodeUTF8));
+        label->setText(QApplication::translate("CleanDialog", "File Extensions", 0, QApplication::UnicodeUTF8));
+#ifndef QT_NO_TOOLTIP
+        pbResetExtensions->setToolTip(QApplication::translate("CleanDialog", "Restore default", 0, QApplication::UnicodeUTF8));
+#endif // QT_NO_TOOLTIP
+        pbResetExtensions->setText(QString());
+        label_3->setText(QApplication::translate("CleanDialog", "Delete the auxiliary files generated by LaTeX:", 0, QApplication::UnicodeUTF8));
+        label_4->setText(QApplication::translate("CleanDialog", "Files to Delete", 0, QApplication::UnicodeUTF8));
+    } // retranslateUi
+
+};
+
+namespace Ui {
+    class CleanDialog: public Ui_CleanDialog {};
+} // namespace Ui
+
+QT_END_NAMESPACE
+
+#endif // UI_CLEANDIALOG_H
