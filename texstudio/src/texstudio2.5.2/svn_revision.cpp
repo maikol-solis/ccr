@@ -1,1 +1,0 @@
-const char* TEXSTUDIO_SVN_VERSION = "3651";
