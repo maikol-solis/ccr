@@ -1,0 +1,52 @@
+# Maintainer: Inkane <neoinkaneglade@aol.com> 
+# Contributor: Clément DEMOULINS <clement@archivel.fr>
+
+pkgname=texstudio
+pkgver=3964
+pkgrel=1
+pkgdesc="Fork of the LaTeX IDE TexMaker. Gives you an environment where you can easily create and manage LaTeX documents."
+arch=('i686' 'x86_64')
+url="http://texstudio.sourceforge.net/"
+license=('GPL')
+makedepends=('subversion')
+depends=('poppler-qt' 'texlive-bibtexextra' 'texlive-core' 'texlive-fontsextra' 'texlive-htmlxml' 'texlive-latexextra' 'texlive-pstricks' )
+optdepends=('okular: pdf reader' 'texlive-bin')
+replaces=('texmakerx')
+install=$pkgname.install
+
+md5sums=('fce221c9df49e82cfb5b8d7c702c4076')
+
+_svntrunk=http://svn.code.sf.net/p/texstudio/code/trunk
+_svnmod=texstudio
+
+build() {
+  cd "$srcdir"
+  msg "Connecting to SVN server...."
+
+  if [[ -d "$_svnmod/.svn" ]]; then
+    (cd "$_svnmod" && svn up -r "$pkgver")
+  else
+    svn co "$_svntrunk" --config-dir ./ -r "$pkgver" "$_svnmod"
+  fi
+
+  msg "SVN checkout done or server timeout"
+  msg "Starting build..."
+
+  rm -rf "$srcdir/$_svnmod-build"
+  cp -r "$srcdir/$_svnmod" "$srcdir/$_svnmod-build"
+  cd "$srcdir/$_svnmod-build"
+  
+  
+  
+  #
+  # BUILD HERE
+  #
+  
+  qmake texstudio.pro
+ make
+}
+
+package() {
+ cd "$srcdir/$_svnmod-build"
+ make INSTALL_ROOT="$pkgdir" install
+}
