@@ -1,8 +1,8 @@
 # Maintainer: Inkane <neoinkaneglade@aol.com> 
 # Contributor: Clément DEMOULINS <clement@archivel.fr>
 
-pkgname=texstudio
-pkgver=3964
+pkgname=texstudio-svn
+pkgver=3982
 pkgrel=1
 pkgdesc="Fork of the LaTeX IDE TexMaker. Gives you an environment where you can easily create and manage LaTeX documents."
 arch=('i686' 'x86_64')
