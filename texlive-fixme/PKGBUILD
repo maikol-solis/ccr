@@ -1,0 +1,33 @@
+# Maintainer: mikesol
+# Contributor: aur2ccr (http://ddg.gg/?q=!ccr+aur2ccr&t=chakra)
+# Contributor: Wenlong Chen <qzchenwl AT gmail.com>
+# Contributor: Emiliano Vavassori <syntaxerrormmm AT gmail.com>
+
+pkgname=texlive-fixme
+pkgver=4.2
+pkgrel=1
+pkgdesc="Collaborative annotation tool for LaTeX."
+arch=('any')
+url="http://tug.ctan.org/tex-archive/macros/latex/contrib/fixme/"
+license=('GPL')
+depends=('texlive-core' 'texlive-latexextra')
+source=("http://mirrors.ctan.org/macros/latex/contrib/fixme.zip")
+md5sums=('51b7b76d87bfcee7db5d430c70531afc')
+install=texlive-fixme.install
+
+build(){
+  cd "${srcdir}/fixme"
+  latex fixme.ins
+  latex fixme.dtx
+  latex fixme.dtx
+  makeindex -s gind fixme.idx
+  latex fixme.dtx
+  latex fixme.dtx
+  
+  }
+
+package() {
+  cd "${srcdir}"
+  install -dm755 "${pkgdir}/usr/share/texmf/tex/latex"
+  cp -r fixme "${pkgdir}/usr/share/texmf/tex/latex"
+}
